@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayana B R | Resume Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --accent: #06b6d4;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-dim: #64748b;
+            --border: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: 0.2s;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .bento-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 25px;
+        }
+
+        /* HEADER & CONTROLS */
+        .hero { grid-column: span 8; }
+        .hero h1 { font-size: 3rem; font-weight: 800; color: var(--primary); }
+        
+        .controls { grid-column: span 4; display: flex; flex-direction: column; gap: 10px; }
+        .btn { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            background: var(--card-bg); 
+            color: var(--text-main); 
+            cursor: pointer; 
+            font-weight: 600; 
+            text-decoration: none; 
+            text-align: center;
+            display: inline-block;
+        }
+        .btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .btn-accent { border-color: var(--accent); color: var(--accent); }
+        .btn-accent:hover { background: var(--accent); color: white; }
+
+        /* SECTIONS */
+        .edu { grid-column: span 7; }
+        .contact-info { grid-column: span 5; }
+        .skills { grid-column: span 12; }
+        .projects { grid-column: span 8; }
+        .certs { grid-column: span 4; }
+
+        h2 { font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid var(--primary); display: inline-block; }
+
+        /* SKILLS LIST */
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; }
+        .skill-item { font-size: 0.9rem; padding: 8px 12px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border: 1px solid var(--border); }
+
+        /* PROJECTS */
+        .project-card { background: rgba(255,255,255,0.03); border-radius: 15px; padding: 15px; margin-top: 10px; border: 1px solid var(--border); }
+        .more-projects { max-height: 0; overflow: hidden; }
+        .more-projects.show { max-height: 300px; padding-top: 10px; }
+
+        /* CONTACT FORM */
+        .contact-form { grid-column: span 12; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        textarea, input { background: var(--bg); border: 1px solid var(--border); padding: 12px; border-radius: 10px; color: var(--text-main); outline: none; }
+        textarea { grid-column: span 2; }
+        .submit-btn { grid-column: span 2; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; }
+
+        @media (max-width: 800px) {
+            .hero, .controls, .edu, .contact-info, .projects, .certs { grid-column: span 12; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .contact-form { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="bento-item hero">
+            <h1>Nayana B R</h1>
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-dim);">Computer Science Engineering Student</p>
+            <p style="font-size: 0.9rem; margin-top: 5px;">Hassan, Karnataka | CGPA: 8.76</p>
+        </header>
+
+        <div class="controls">
+            <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+            <a href="https://portfolio-nyna.vercel.app" target="_blank" class="btn btn-accent">🌐 View Live Portfolio</a>
+        </div>
+
+        <section class="bento-item edu">
+            <h2>Education</h2>
+            <div style="margin-top: 10px;">
+                <p><strong>B.E - Computer Science</strong> (2022-2026)</p>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Malnad College of Engineering, Hassan</p>
+                
+                <div style="margin-top: 15px;">
+                    <p><strong>PUC (XII)</strong> - 93.7%</p>
+                    <p style="font-size: 0.85rem; color: var(--text-dim);">Topper's PU College</p>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <p><strong>Schooling (SSLC)</strong></p>
+                    <p style="font-size: 0.85rem; color: var(--text-dim);">Hardanahally School</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bento-item contact-info">
+            <h2>Contact Details</h2>
+            <p style="margin-top:10px;">📧 <strong>Email:</strong><br>peritebr@gmail.com</p>
+            <p style="margin-top:15px;">📍 <strong>Location:</strong><br>Hassan, Karnataka</p>
+        </section>
+
+        <section class="bento-item skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python, Java, C</div>
+                <div class="skill-item">HTML, CSS, Web Tech</div>
+                <div class="skill-item">MySQL, MongoDB</div>
+                <div class="skill-item">Figma, UI/UX Design</div>
+                <div class="skill-item">GitHub, Version Control</div>
+                <div class="skill-item">OpenCV, AI/ML Basics</div>
+            </div>
+        </section>
+
+        <section class="bento-item projects">
+            <h2>Academic Projects</h2>
+            <div class="project-card">
+                <p><strong>Faculty Document System</strong></p>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">A secure document management portal using MySQL and Web Technologies.</p>
+            </div>
+            
+            <div class="more-projects" id="extraProjects">
+                <div class="project-card">
+                    <p><strong>Iris Recognition System</strong></p>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Biometric identification project utilizing Python and OpenCV libraries.</p>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="toggleProjects()" id="toggleBtn" style="margin-top: 15px; padding: 6px; font-size: 0.8rem; width: auto;">Show More Projects</button>
+        </section>
+
+        <section class="bento-item certs">
+            <h2>Certifications</h2>
+            <ul style="list-style: none; margin-top: 10px; font-size: 0.85rem; line-height: 2;">
+                <li>• HCI - NPTEL (Silver)</li>
+                <li>• Python - Great Learning</li>
+                <li>• Soft Skills - NPTEL</li>
+                <li>• State Hackathon '24</li>
+            </ul>
+        </section>
+
+        <section class="bento-item" style="grid-column: span 12;">
+            <h2>Contact Me</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <textarea id="message" rows="3" placeholder="Write your message here..." required></textarea>
+                <button type="submit" class="submit-btn">Send Message 🚀</button>
+            </form>
+            <p id="feedback" style="margin-top:10px; text-align:center; font-size: 0.9rem; font-weight: bold;"></p>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('themeBtn');
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            btn.innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+
+        function toggleProjects() {
+            const extra = document.getElementById('extraProjects');
+            const btn = document.getElementById('toggleBtn');
+            extra.classList.toggle('show');
+            btn.innerText = extra.classList.contains('show') ? 'Show Less' : 'Show More Projects';
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('feedback');
+            feedback.innerText = "Thank you! Your message has been sent. ✅";
+            feedback.style.color = "#4ade80";
+            this.reset();
+        });
+    </script>
+</body>
+</html>
